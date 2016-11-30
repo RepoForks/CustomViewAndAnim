@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.util.dragbackview">
+    package="com.util.customview">
 
     <application
         android:allowBackup="true"
@@ -19,7 +19,6 @@
         <activity android:name="com.util.customview.animation_parabola.ParabolaActivity" />
         <activity android:name="com.util.customview.auto_scroll.AutoScrollActivity" />
         <activity android:name="com.util.customview.animation_wave.WaveAnimActivity" />
-        <activity android:name="com.util.customview.ripple.RippleActivity"></activity>
     </application>
 
 </manifest>

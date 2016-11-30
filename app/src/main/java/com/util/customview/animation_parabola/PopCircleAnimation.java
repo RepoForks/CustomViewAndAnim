@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 
-import com.util.dragbackview.R;
+import com.util.customview.R;
 
 /**
  * Created by hai.ning on 16/3/14.

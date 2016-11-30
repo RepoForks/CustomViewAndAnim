@@ -3,7 +3,7 @@ package com.util.customview.animation_wave;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.util.dragbackview.R;
+import com.util.customview.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

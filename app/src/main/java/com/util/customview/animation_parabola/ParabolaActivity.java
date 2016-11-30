@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.util.dragbackview.R;
+import com.util.customview.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

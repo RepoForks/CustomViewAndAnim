@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.util.dragbackview.R;
+import com.util.customview.R;
 
 /**
  * Created by hai.ning on 16/3/3.

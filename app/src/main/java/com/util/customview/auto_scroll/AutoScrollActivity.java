@@ -3,7 +3,7 @@ package com.util.customview.auto_scroll;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.util.dragbackview.R;
+import com.util.customview.R;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;

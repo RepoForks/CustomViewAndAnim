@@ -9,7 +9,6 @@ import com.util.customview.animation_parabola.ParabolaActivity;
 import com.util.customview.animation_wave.WaveAnimActivity;
 import com.util.customview.auto_scroll.AutoScrollActivity;
 import com.util.customview.custom_view.CustomViewActivity;
-import com.util.dragbackview.R;
 
 public class MainActivity extends Activity {
 

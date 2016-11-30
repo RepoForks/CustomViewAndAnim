@@ -14,7 +14,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.util.dragbackview.R;
+import com.util.customview.R;
 
 
 /**

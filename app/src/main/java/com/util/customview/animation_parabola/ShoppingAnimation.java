@@ -15,7 +15,7 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.util.dragbackview.R;
+import com.util.customview.R;
 
 /**
  * Created by hai.ning on 16/3/14.

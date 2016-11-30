@@ -9,11 +9,11 @@ Some custom view and animations.
 
 ![](./art/parabola_animation.gif)
 
-2.Animation: auto scroll animation
+3.Animation: auto scroll animation
 
 ![](./art/scroll_animation.gif)
 
-3.Animation: wave
+4.Animation: wave
 
 ![](./art/wave_animation.gif)
 

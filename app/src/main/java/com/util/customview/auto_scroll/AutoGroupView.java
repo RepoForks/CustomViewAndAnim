@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
-import com.util.dragbackview.R;
+import com.util.customview.R;
 
 /**
  * Created by hai.ning on 16/3/19.
