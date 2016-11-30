@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    tools:context="com.util.customview.animation_parabola.ParabolaActivity">
+
+    <com.util.customview.custom_view.DragBackView
+        android:id="@+id/view_end"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:src="@drawable/cart_2" />
+
+    <Button
+        android:id="@+id/btn_start_parabola"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start_para"
+        android:layout_alignParentBottom="true"
+        android:onClick="startParabolaAnim"
+        android:layout_margin="20dp"
+        />
+    <Button
+        android:id="@+id/btn_start_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start_center"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@id/btn_start_parabola"
+        android:onClick="startCenterAnim"
+        android:layout_margin="20dp"
+        />
+
+
+
+</RelativeLayout>

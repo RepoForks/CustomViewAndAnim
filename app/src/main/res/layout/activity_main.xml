@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.util.customview.MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="enterParabolaAnim"
+        android:text="Parabola Animation"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="enterShapeImage"
+        android:text="Custom View"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="enterAutoScroll"
+        android:text="Auto Scroll Animation"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="enterWaveAnimation"
+        android:text="Wave Animation"/>
+
+    <com.util.customview.custom_view.CircleShopBagView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/cart_2"/>
+
+</LinearLayout>
