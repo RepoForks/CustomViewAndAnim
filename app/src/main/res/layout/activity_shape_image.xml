@@ -3,6 +3,7 @@
     xmlns:round="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/tools"
     android:padding="10dp">
 
     <LinearLayout
@@ -18,13 +19,14 @@
             android:src="@drawable/beauty" />
 
         <com.util.customview.custom_view.RoundImageView
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
             android:src="@drawable/beauty"
-            round:radius="10dp"
-            round:type="round" />
+            round:type="circle"
+            round:has_frame="true"
+            />
 
         <com.util.customview.custom_view.RoundImageView
             android:layout_width="150dp"
@@ -32,12 +34,26 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="5dp"
             android:src="@drawable/beauty"
-            round:type="circle" />
+            round:type="circle"
+            round:has_mask="true"
+            />
+
+        <com.util.customview.custom_view.RoundImageView
+            android:layout_width="200dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="5dp"
+            android:src="@drawable/beauty"
+            round:radius="10dp"
+            round:type="round"
+            round:has_mask="true"/>
 
         <com.util.customview.custom_view.MaskFrameLayout
             android:layout_width="200dp"
             android:layout_height="150dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            app:border_radius="5dp">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

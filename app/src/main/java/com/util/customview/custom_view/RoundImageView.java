@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.RectF;
@@ -13,6 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.util.customview.R;
 
@@ -28,12 +30,17 @@ public class RoundImageView extends ImageView {
     private int mBitmapWidth;
     private int mBitmapHeight;
 
+    private Paint paint;
+    private int mFrameWidth; //frame width
     private int mImgType;
     private float borderRadius;
+    private boolean hasFrame;
+    private boolean hasMask; //是否有蒙版
 
     public RoundImageView(Context context) {
         this(context, null);
     }
+
     public RoundImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
@@ -43,7 +50,12 @@ public class RoundImageView extends ImageView {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RoundImageView);
         mImgType = a.getInt(R.styleable.RoundImageView_type, 0);
         borderRadius = a.getDimension(R.styleable.RoundImageView_radius, 0);
+        hasFrame = a.getBoolean(R.styleable.RoundImageView_has_frame, false);
+        hasMask = a.getBoolean(R.styleable.RoundImageView_has_mask, false);
         a.recycle();
+
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        mFrameWidth = 10;
     }
 
     public Bitmap createBitmap() {
@@ -74,7 +86,7 @@ public class RoundImageView extends ImageView {
             //圆形ImageView时，有可能造成图片变形，所以要使用偏正方形的图片
             int minSize = Math.min(getWidth(), getHeight());
             scaleX = minSize / (float) mBitmapWidth;
-            scaleY = minSize/ (float) mBitmapHeight;
+            scaleY = minSize / (float) mBitmapHeight;
         } else {
             scaleX = getWidth() / (float) mBitmapWidth;
             scaleY = getHeight() / (float) mBitmapHeight;
@@ -105,11 +117,57 @@ public class RoundImageView extends ImageView {
     @Override
     protected void onDraw(Canvas canvas) {
         if (mImgType == TYPE_ROUND) {
-            RectF rectF = new RectF(0, 0, getWidth(), getHeight());
-            canvas.drawRoundRect(rectF, borderRadius, borderRadius, createShaderPaint());
+            drawRoundRectView(canvas);
         } else {
-            int radius = Math.min(getWidth(), getHeight())/2;
-            canvas.drawCircle(radius, radius, radius, createShaderPaint());
+            drawCircleView(canvas);
+        }
+    }
+
+    protected void drawRoundRectView(Canvas canvas) {
+        if (hasFrame) {
+            Toast.makeText(getContext(), "RoundImageView don't support frame in round rect type!", Toast.LENGTH_SHORT).show();
+        }
+
+        RectF rectF = new RectF(0, 0, getWidth(), getHeight());
+        canvas.drawRoundRect(rectF, borderRadius, borderRadius, createShaderPaint());
+
+        if (hasMask) {
+            canvas.save();
+            paint.reset();
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(Color.parseColor("#6dbde9fd"));
+
+            canvas.drawRoundRect(rectF, borderRadius, borderRadius, paint);
+            canvas.restore();
+        }
+    }
+
+    protected void drawCircleView(Canvas canvas) {
+        int cxy = Math.min(getWidth(), getHeight()) / 2;
+        int radius = cxy;
+
+        if (hasFrame) {
+            canvas.save();
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeWidth(mFrameWidth);
+            paint.setColor(Color.BLACK);
+
+            radius -= mFrameWidth/2; //prevent drawing frame outside of circle area
+            canvas.drawCircle(cxy, cxy, radius, paint);
+            radius -= mFrameWidth/2;
+            canvas.restore();
+        }
+
+        canvas.drawCircle(cxy, cxy, radius, createShaderPaint());
+
+        if (hasMask) {
+            canvas.save();
+            paint.reset();
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(Color.parseColor("#6dbde9fd"));
+
+            canvas.drawCircle(cxy, cxy, radius, paint);
+            canvas.restore();
         }
     }
 }

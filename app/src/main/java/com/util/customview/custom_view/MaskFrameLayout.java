@@ -1,6 +1,7 @@
 package com.util.customview.custom_view;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
@@ -21,26 +22,30 @@ import com.util.customview.R;
  */
 public class MaskFrameLayout extends FrameLayout {
 
+    private float mBorderRadius;
     private Paint mPaint;
     private Bitmap mMaskBitmap;
     private PorterDuffXfermode mPorterDuffXferMode;
 
-    public MaskFrameLayout(Context context) {
-        super(context);
-        init();
-    }
-
     public MaskFrameLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
+        this(context, attrs, 0);
     }
 
     public MaskFrameLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context, attrs);
     }
 
-    protected void init() {
+    protected void init(Context context, AttributeSet attrs) {
+        if (attrs != null) {
+            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.MaskFrameLayout);
+            mBorderRadius = a.getDimension(R.styleable.MaskFrameLayout_border_radius,
+                    getResources().getDimension(R.dimen.mask_layout_default_radius));
+            a.recycle();
+        } else {
+            mBorderRadius = getResources().getDimension(R.dimen.mask_layout_default_radius);
+        }
+
         setDrawingCacheEnabled(true);
         if (Build.VERSION.SDK_INT >= 11) {
             //Only works for software layers. This can fix black background problem
@@ -67,14 +72,12 @@ public class MaskFrameLayout extends FrameLayout {
             return null;
         }
 
-        float radius = getResources().getDimension(R.dimen.mask_layout_radius);
-
         Bitmap bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         Paint paint = new Paint();
         paint.setAntiAlias(true);
 
-        canvas.drawRoundRect(new RectF(0, 0, w, h), radius, radius, paint);
+        canvas.drawRoundRect(new RectF(0, 0, w, h), mBorderRadius, mBorderRadius, paint);
         return bitmap;
     }
 

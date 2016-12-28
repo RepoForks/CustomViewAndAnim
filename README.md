@@ -1,9 +1,12 @@
 # CustomViewAndAnim
 Some custom view and animations.
 
-1.Custom View and Layout
+1.Custom View and Layout. 
 
-![](./art/custom_view.gif)
+Round rect ImageView with frame and mask. Last round rect view is realized by Layout.
+
+![](./art/custom_view.png =344x808)
+
 
 2.Animation: custom shopping bag animation
 

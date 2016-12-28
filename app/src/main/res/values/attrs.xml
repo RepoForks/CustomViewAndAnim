@@ -4,6 +4,8 @@
     <declare-styleable name="RoundImageView">
         <attr name="type"/>
         <attr name="radius"/>
+        <attr name="has_frame" format="boolean"/>
+        <attr name="has_mask" format="boolean"/>
     </declare-styleable>
 
     <attr name="type">
@@ -11,5 +13,9 @@
         <enum name="round" value="1"/>
     </attr>
     <attr name="radius" format="dimension"/>
+
+    <declare-styleable name="MaskFrameLayout">
+        <attr name="border_radius" format="dimension"/>
+    </declare-styleable>
 
 </resources>
