@@ -5,7 +5,7 @@ Some custom view and animations.
 
 Round rect ImageView with frame and mask. Last round rect view is realized by Layout.
 
-![](./art/custom_view.png)
+<img src="./art/custom_view.jpeg" width=300></img>
 
 
 2.Animation: custom shopping bag animation
