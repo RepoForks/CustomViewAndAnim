@@ -8,7 +8,7 @@ import android.view.animation.LinearInterpolator;
 /**
  * Created by hai.ning on 16/3/24.
  *
- * Animation like wave
+ * animation like wave
  */
 public class WaveAnimation {
 
