@@ -10,6 +10,9 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 
 /**
  * Created by hai.ning on 16/2/1.
+ *
+ * View that you can pull follow with your finger.
+ * And it will back to edge of screen when you release.
  */
 public class DragBackView extends CircleShopBagView {
 
